@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <!--<div class="container">-->
+            <!--<span th:text="${clients.name}">Client number</span>-->
+        <!--</div>-->
+        <br>
+        <span>список клиентов</span>
+        <br>
+        <div>
+            <span th:ext="#{propert.names}">страничка</span>
+        </div>
+        <br>
+            <div th:each="names: ${clientall}">
+                <span th:text="${names.name}"></span>
+            </div>
+        <br>
+        <div>
+            <span>тут должен быть текст</span>
+        </div>
+        <br>
+        <div th:each="names: ${clientall}">
+            <input type="checkbox" th:value="${names.name}">
+            <span th:text="${names.name}"></span>
+        </div>
+        <br>
+        <span>Форма для запалнения</span>
+        <br>
+        <form th:action="@{/clientsave}" th:method="post">
+            <div th:each="names: ${clientall}">
+                    <input type="checkbox" th:value="${names.name}" >
+                    <span th:text="${names.name}"></span>
+            </div>
+            <input th:type="submit" th:value="Save">
+        </form>
+        <span>Форма для запалнения 2</span>
+        <br>
+        <form th:action="@{/clientsavetext}" th:method="post">
+            <input th:type="text" th:id="uname" th:name="uname" th:value="12345656">
+            <br>
+            <input th:type="submit" th:value="SaveText">
+        </form>
+    </body>
+</html>

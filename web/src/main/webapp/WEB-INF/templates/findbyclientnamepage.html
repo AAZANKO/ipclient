@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <div align="center">
+            <form th:action="@{/findbyclientname}" th:method="get" >
+                <label th:id="clientname"><span th:text="#{client.name}"></span></label>
+                <input id="clientname" type="text" name="clientname" th:placeholder="#{client.name}" value="" >
+                <input th:type="submit" th:value="#{input.find}" />
+            </form>
+        </div>
+    </body>
+</html>

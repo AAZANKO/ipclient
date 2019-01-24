@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" >
+        <title>Title</title>
+    </head>
+    <body>
+    <form th:action="@{/clientadd}" th:method="post" >
+        <table cellpadding="2" width=350 height=70 align="center" bgcolor="#ffffff" border="1">
+            <tr>
+                <td><label for="clientNumber">Номер клиента</label></td>
+                <td><input id="clientNumber" type="text" name="clientNumber" placeholder="Номер клиента"  value="" /></td>
+            </tr>
+            <tr>
+                <td><label for="name">Наименование</label></td>
+                <td><input id="name" type="text" name="name" placeholder="Наименование" value="" /></td>
+            </tr>
+            <tr>
+                <td><label for="shortName">Краткое наименование</label></td>
+                <td><input id="shortName" type="text" name="shortName" placeholder="Краткое наименование" value="" /></td>
+            </tr>
+            <tr>
+                <td><label for="analyticType">Тип аналитики</label></td>
+                <td><input id="analyticType" type="text" name="analyticType" placeholder="Тип аналитики" value="" /></td>
+            </tr>
+            <tr>
+                <td><label for="analyticCode">Код аналитики</label></td>
+                <td><input id="analyticCode" type="text" name="analyticCode" placeholder="Код аналитики" value="" /></td>
+            </tr>
+            <tr>
+                <td><label for="dateOpen">Дата открытия</label></td>
+                <td><input id="dateOpen" type="text" name="dateOpen" placeholder="Дата открытия" value="" /></td>
+            </tr>
+            <!--<tr>-->
+                <!--<td><label for="dateClose">Дата закрытия</label></td>-->
+                <!--<td><input id="dateClose" type="text" name="dateClose" placeholder="Дата закрытия" value="" /></td>-->
+            <!--</tr>-->
+            <input type="hidden" name="dateClose" value="1900-01-01" />
+            <tr>
+                <td><label for="unp">УНП</label></td>
+                <td><input id="unp" type="text" name="unp" placeholder="УНП" value="" /></td>
+            </tr>
+            <tr>
+                <td><label for="account">Счет</label></td>
+                <td><input id="account" type="text" name="account" placeholder="Счет" value="" /></td>
+            </tr>
+            <tr>
+                <td><label for="legalCity">Юридический адрес, город</label></td>
+                <td><input id="legalCity" type="text" name="legalCity" placeholder="Юридический адрес, город" value="" /></td>
+            </tr>
+            <tr>
+                <td><label for="legalStreet">Юридический адрес, улица</label></td>
+                <td><input id="legalStreet" type="text" name="legalStreet" placeholder="Юридический адрес, улица" value="" /></td>
+            </tr>
+            <tr>
+                <td><label for="legalHouse">Юридический адрес, дом</label></td>
+                <td><input id="legalHouse" type="text" name="legalHouse" placeholder="Юридический адрес, дом" value="" /></td>
+            </tr>
+            <tr>
+                <td><label for="territoryCity">Юридический адрес, город</label></td>
+                <td><input id="territoryCity" type="text" name="territoryCity" placeholder="Физический адрес, город" value="" /></td>
+            </tr>
+            <tr>
+                <td><label for="territoryStreet">Юридический адрес, улица</label></td>
+                <td><input id="territoryStreet" type="text" name="territoryStreet" placeholder="Физический адрес, улица" value="" /></td>
+            </tr>
+            <tr>
+                <td><label for="territoryHouse">Юридический адрес, дом</label></td>
+                <td><input id="territoryHouse" type="text" name="territoryHouse" placeholder="Физический адрес, дом" value="" /></td>
+            </tr>
+            <tr>
+                <td><label for="designationType">Тип вид деятельности</label></td>
+                <td><input id="designationType" type="text" name="designationType" placeholder="Тип вид деятельности" value="" /></td>
+            </tr>
+            <tr>
+                <td><label for="designationCode">Код вид деятельности</label></td>
+                <td><input id="designationCode" type="text" name="designationCode" placeholder="Код вид деятельности" value="" /></td>
+            </tr>
+            <tr>
+                <td><label for="countPerson">Количество сотрудников</label></td>
+                <td><input id="countPerson" type="text" name="countPerson" placeholder="Количество сотрудников" value="" /></td>
+            </tr>
+            <input type="hidden" name="status" value="1" />
+
+            <tr>
+                <td><label for="officer">Исполнитель</label></td>
+                <td><input id="officer" type="text" name="officer" placeholder="Исполнитель" value="" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <h4></h4>
+                </td>
+                <td>
+                    <input th:type="submit" th:value="Добавить" /></td>
+            </tr>
+        </table>
+    </form>
+
+    </body>
+</html>

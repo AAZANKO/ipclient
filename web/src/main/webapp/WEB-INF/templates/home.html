@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Home</title>
+    <!--<link rel="stylesheet" type="text/css" href="src/main/resources/static/css/" >-->
+    <!--<link rel="stylesheet" type="text/css" href="src/main/resources/static/js/" >-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/librarystilest.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/librarystile.css}" />
+    <!--<link rel="stylesheet" type="text/css" href="../css/librarystilest.css" >-->
+    <!--<link rel="stylesheet" type="text/css" href="../css/librarystile.css" >-->
+
+    <style>
+        .input{
+            display: flex;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            border-radius: .2em;
+            box-sizing: border-box;
+            width: 173px;
+        }
+        ul{
+            display: flex;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            border-radius: .2em;
+            box-sizing: border-box;
+            width: 150px;
+        }
+        li{
+            position: relative;
+        }
+        li ul{
+            position: absolute;
+            top: 42px;
+            display: none;
+        }
+        li:hover ul{
+            display: block;
+        }
+        li a{
+            display: block;
+            padding: .7em;
+            background-color: lightgrey;
+            color: grey;
+            border: 1px black solid;
+            border-bottom: 1px solid black; /**/
+            border-radius: .2em;
+            text-decoration: none;
+            transition: .5s all ease;
+            width: 150px;
+        }
+        li a:hover{
+            background-color: grey;
+            color: lightgrey;
+        }
+        @media screen and (max-width: 1250px){
+            ul{
+                display: block;
+                padding: 0;
+                margin: 0;
+                list-style-type: none;
+                border-bottom: 1px solid black;
+                border-radius: .2em;
+                width: 173px;
+            }
+            li{
+                position: relative;
+            }
+            li ul{
+                position: absolute;
+                top: 0;
+                left: 173px;
+                display: none;
+            }
+            li:hover ul{
+                display: block;
+            }
+            li a{
+                display: block;
+                padding: .7em;
+                background-color: lightgrey;
+                color: grey;
+                border: 1px black solid;
+                border-bottom: none;
+                border-radius: .2em;
+                text-decoration: none;
+                transition: .5s all ease;
+            }
+            li a:hover{
+                background-color: grey;
+                color: lightgrey;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div th:insert="~{headers::language}">
+    </div>
+    <h2 th:text="${userName}"></h2>
+        <br>
+        <ul>
+            <li><a href=#>Клиенты</a>
+                <ul>
+                    <li>
+                        <!--  class="contact_form"  -->
+                        <form action="/findbyallclient" method="get">
+                            <input type="hidden" name="idPage" value="1" />
+                            <input class="button_menu" type="submit" name="sing in" value="Все клиенты"/>
+                        </form>
+                    <li>
+                        <!--  class="contact_form"  -->
+                        <form action="/findbyallclientdto" method="get">
+                            <input class="button_menu" type="submit" name="sing in" value="Все клиенты в ДТО"/>
+                        </form>
+                    <li>
+                        <!--  class="contact_form"  -->
+                        <form action="/findbyclientnamepage" method="get">
+                            <input type="hidden" name="command" value="allusersearch"/>
+                            <input class="button_menu" type="submit" name="sing in" value="Найти клиента"/>
+                        </form>
+                    <li>
+                        <form action="/clientaddpage" method="get">
+                            <input type="hidden" name="idPage" value="1"/>
+                            <input type="hidden" name="command" value="allusersearchpage"/>
+                            <input class="button_menu" type="submit" name="sing in" value="Добавить клиента"/>
+                        </form>
+                    <li>
+                        <form action="AdminDelUserPage" method="post">
+                            <input class="button_menu" type="submit" name="sing in" value="Обновить клиента"/>
+                        </form>
+                    <li>
+                        <form action="AdminUpdUserFirstNamePage" method="post">
+                            <input class="button_menu" type="submit" name="sing in" value="Закрыть клиента"/>
+                        </form>
+                </ul>
+            </li>
+            <li><a href=#>Договора</a>
+                <ul>
+                    <li>
+                        <form action="/contract" method="get">
+                            <input class="button_menu" type="submit" name="sing in" value="Договоры"/>
+                        </form>
+                    <li>
+                        <form action="FrontController" method="post">
+                            <input type="hidden" name="idPage" value="1"/>
+                            <input type="hidden" name="command" value="allusersearchpage"/>
+                            <input class="button_menu" type="submit" name="sing in" value="Добавить клиента"/>
+                        </form>
+                    <li>
+                        <form action="AdminDelUserPage" method="post">
+                            <input class="button_menu" type="submit" name="sing in" value="Обновить клиента"/>
+                        </form>
+                    <li>
+                        <form action="AdminUpdUserFirstNamePage" method="post">
+                            <input class="button_menu" type="submit" name="sing in" value="Закрыть клиента"/>
+                        </form>
+                    <li>
+                        <form action="FrontController" method="get">
+                            <input type="hidden" name="idPage" value="1"/>
+                            <input type="hidden" name="command" value="allbooksearchpage"/>
+                            <input class="button_menu" type="submit" name="sing in" value="Ликвидации"/>
+                        </form>
+                    <li>
+                        <form action="AdminAddBookPage" method="post">
+                            <input class="button_menu" type="submit" name="sing in" value="Анкеты"/>
+                        </form>
+                </ul>
+            </li>
+            <li><a href=#>Телефоны</a>
+                <ul>
+                    <li>
+                        <form action="FrontController" method="post">
+                            <input type="hidden" name="command" value="allkaufzakazalluser"/>
+                            <input class="button_menu" type="submit" name="sing in" value="Телефоны"/>
+                        </form>
+                    <li>
+                        <form action="FrontController" method="post">
+                            <input type="hidden" name="idPage" value="1"/>
+                            <input type="hidden" name="command" value="allkaufzakazalluserpage"/>
+                            <input class="button_menu" type="submit" name="sing in" value="Поиск по номеру"/>
+                        </form>
+                </ul>
+            </li>
+            <li><a href=#>График</a>
+                <ul>
+                    <li><a href=#>Поиск по аудитору</a>
+                    <li><a href=#>Поиск по дате</a>
+                </ul>
+            </li>
+            <li><a href=#>Отчеты</a>
+                <ul>
+                    <li>
+                        <form action="/other" method="post">
+                            <input class="button_menu" type="submit" name="sing in" value="submit_button_log_out"/>
+                        </form>
+                </ul>
+            </li>
+            <li><a href=#>Администрирование</a>
+                <ul>
+                    <li><a href=#>Услуги</a>
+                    <li><a href=#>Аудиторы</a>
+
+                    <li><form action="/getOfficerAll" method="get">
+                        <input class="button_menu" type="submit" name="sing in" value="Список пользователей"/>
+                    </form>
+                    </li>
+                    <li><form action="/addOfficer" method="get">
+                            <input class="button_menu" type="submit" name="sing in" value="Добавить пользователя"/>
+                        </form>
+                    </li>
+                    <li><a href="http://localhost:8080/getOfficerAll">Пользователи</a>
+                    <li>
+                        <!--<form id="my_form" name="user_data" method="get" action="http://178.124.206.48/fe/form.php">-->
+                        <form action="/officer" method="get">
+                            <input class="button_menu" type="submit" name="officer" value="Все Пользователи"/>
+                        </form>
+                </ul>
+            </li>
+            <li><a href=#>Выход</a>
+                <ul>
+                    <li><form action="/logout" method="get">
+                        <input class="button_menu" type="submit" name="sing in" value="Log Out"/>
+                    </form>
+                    </li>
+                </ul>
+        </ul>
+
+        <div th:if="${findAllBy != null}">
+            <!--<table style="border-style: solid; border-width: 3px; width: 1400px; border-collapse: collapse;">-->
+            <table>
+                <thead>
+                    <tr style="background-color: gray;">
+                        <td style="width: 50px;;">ID</td>
+                        <td style="width: 200px;"><span th:text="#{client.number}">clientNumber</span></td>
+                        <td style="width: 320px;"><span th:text="#{client.shortName}">shortName</span></td>
+                        <td style="width: 320px;"><span th:text="#{client.address}">address</span></td>
+                        <td style="width: 320px;"><span th:text="#{client.unp}">unp</span></td>
+                        <td style="width: 320px;"><span th:text="#{client.dateOpen}">dateOpen</span></td>
+                        <td style="width: 320px;"><span th:text="#{client.collEmployee}">collEmployee</span></td>
+                        <td style="width: 320px;"><span th:text="#{client.analyticNameOne}">analyticNameOne</span></td>
+                        <td style="width: 320px;"><span th:text="#{client.analyticNameTwo}">analyticNameTwo</span></td>
+                        <td style="width: 320px;"><span th:text="#{client.analyticNameThree}">analyticNameThree</span></td>
+                        <td style="width: 320px;"><span th:text="#{client.analyticNameFour}">analyticNameFour</span></td>
+                        <td style="width: 320px;"><span th:text="#{client.officerName}">officerName</span></td>
+                        <td>Позвонить</td>
+                    </tr>
+                </thead>
+                <tr th:each="names: ${findAllBy}">
+                    <td><span th:text="${names.id}"></span></td>
+                    <td><span th:text="${names.clientNumber}"></span></td>
+                    <td><span th:text="${names.shortName}"></span></td>
+                    <td><span th:text="${names.address}"></span></td>
+                    <td><span th:text="${names.unp}"></span></td>
+                    <td><span th:text="${names.dateOpen}"></span></td>
+                    <td><span th:text="${names.collEmployee}"></span></td>
+                    <td><span th:text="${names.analyticNameOne}"></span></td>
+                    <td><span th:text="${names.analyticNameTwo}"></span></td>
+                    <td><span th:text="${names.analyticNameThree}"></span></td>
+                    <td><span th:text="${names.analyticNameFour}"></span></td>
+                    <td><span th:text="${names.officerName}"></span></td>
+                    <td>
+                        <form action="/toCallClient" method="post">
+                            <input type="hidden" name="id" value="${names.id}" />
+                            <input class="button_table" type="submit" name="sing in" value="Позвонить" />
+                        </form>
+                    </td>
+                </tr>
+            </table>
+            <!--<span th:each="names: ${arrIntButton}">-->
+                <!--<form action="/findbyallclient" method="get">-->
+                    <!--<input type="hidden" name="idPage" value="${arrIntButton}" />-->
+                    <!--<input class="button_menu" type="submit" name="idPage" value="${arrIntButton}"/>-->
+                <!--</form>-->
+            <!--</span>-->
+            <table>
+                <tr>
+                    <td th:each="allIntButton : ${arrIntButton}">
+                        <!--<span th:text="${allIntButton}"></span>-->
+                        <form action="/findbyallclient" method="get">
+                            <input type="hidden" name="idPage" th:attr="value=${allIntButton}"/>
+                            <input class="button_table" type="submit" name="sing in" th:attr="value=${allIntButton}"/>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+        <div th:if="${findAllByDto != null}">
+            <table style="border-style: solid; border-width: 3px; width: 1400px; border-collapse: collapse;">
+                <thead>
+                <tr style="background-color: gray;">
+                    <td style="width: 50px;;">ID</td>
+                    <td style="width: 200px;">clientNumber</td>
+                    <td style="width: 320px;">name</td>
+                    <td style="width: 320px;">shortName</td>
+                    <td style="width: 320px;">analyticType</td>
+                    <td style="width: 320px;">analyticCode</td>
+                    <td style="width: 320px;">dateOpen</td>
+                    <td style="width: 320px;">dateClose</td>
+                    <td style="width: 320px;">unp</td>
+                    <td style="width: 320px;">account</td>
+                    <td style="width: 320px;">legalCity</td>
+                    <td style="width: 320px;">legalStreet</td>
+                    <td style="width: 320px;">legalHouse</td>
+                    <td style="width: 320px;">territoryCity</td>
+                    <td style="width: 320px;">territoryStreet</td>
+                    <td style="width: 320px;">territoryHouse</td>
+                    <td style="width: 320px;">designationType</td>
+                    <td style="width: 320px;">designationCode</td>
+                    <td style="width: 320px;">countPerson</td>
+                    <td style="width: 320px;">status</td>
+                    <td style="width: 20px;">officer</td>
+                </tr>
+                </thead>
+                <tr th:each="names: ${findAllByDto}">
+                    <td><span th:text="${names.id}"></span></td>
+                    <td><span th:text="${names.clientNumber}"></span></td>
+                    <td><span th:text="${names.shortName}"></span></td>
+                    <td><span th:text="${names.analyticType}"></span></td>
+                    <td><span th:text="${names.analyticCode}"></span></td>
+                    <td><span th:text="${names.dateOpen}"></span></td>
+                    <td><span th:text="${names.dateClose}"></span></td>
+                    <td><span th:text="${names.unp}"></span></td>
+                    <td><span th:text="${names.account}"></span></td>
+                    <td><span th:text="${names.legalCity}"></span></td>
+                    <td><span th:text="${names.legalStreet}"></span></td>
+                    <td><span th:text="${names.legalHouse}"></span></td>
+                    <td><span th:text="${names.territoryCity}"></span></td>
+                    <td><span th:text="${names.territoryStreet}"></span></td>
+                    <td><span th:text="${names.territoryHouse}"></span></td>
+                    <td><span th:text="${names.designationType}"></span></td>
+                    <td><span th:text="${names.designationCode}"></span></td>
+                    <td><span th:text="${names.countPerson}"></span></td>
+                    <td><span th:text="${names.status}"></span></td>
+                    <!--<td><span th:text="${names.officer}"></span></td>-->
+                </tr>
+            </table>
+        </div>
+
+    <!-- Список пользователей -->
+    <div th:if="${findOfficerAll != null}">
+        <table style="border-style: solid; border-width: 3px; width: 1400px; border-collapse: collapse;">
+            <thead>
+            <tr style="background-color: gray;">
+                <td style="width: 50px;;">ID</td>
+                <td style="width: 200px;">FIRSTNAME</td>
+                <td style="width: 320px;">LASTNAME</td>
+                <td style="width: 320px;">MIDDLENAME</td>
+                <td style="width: 320px;">OFFICERTYPE</td>
+                <td style="width: 320px;">OFFICERCODE</td>
+                <td style="width: 320px;">DATEPRINYAT</td>
+                <td style="width: 320px;">DATEUVOLEN</td>
+                <td style="width: 320px;">STATUS</td>
+                <td style="width: 320px;">LOGIN</td>
+                <td style="width: 320px;">ROLE</td>
+                <td style="width: 320px;">РЕДАКИРОВАТЬ</td>
+                <td style="width: 320px;">УДАЛИТЬ</td>
+                <td style="width: 320px;">ВОССТАНОВИТЬ</td>
+            </tr>
+            </thead>
+            <tr th:each="names: ${findOfficerAll}">
+                <td><span th:text="${names.id}"></span></td>
+                <td><span th:text="${names.firstName}"></span></td>
+                <td><span th:text="${names.lastName}"></span></td>
+                <td><span th:text="${names.middleName}"></span></td>
+                <td><span th:text="${names.officerType}"></span></td>
+                <td><span th:text="${names.officerCode}"></span></td>
+                <td><span th:text="${names.datePrinyat}"></span></td>
+                <td><span th:text="${names.dateUvolen}"></span></td>
+                <td><span th:text="${names.status}"></span></td>
+                <td><span th:text="${names.login}"></span></td>
+                <td><span th:text="${names.role}"></span></td>
+                <td>
+                <form action="/editOfficer" method="post">
+                    <input type="hidden" name="id" value="${names.id}" />
+                    <input class="button_table" type="submit" name="sing in" value="Редактировать" />
+                </form>
+                </td>
+                <td>
+                    <form action="/deleteOfficer" method="post">
+                         <input type="hidden" name="id" value="${names.id}" />
+                        <input class="button_table" type="submit" name="sing in" value="Удалить" />
+                    </form>
+                </td>
+                <td>
+                    <form action="/activateOfficer" method="post">
+                        <input type="hidden" name="id" value="${names.id}" />
+                        <input class="button_table" type="submit" name="sing in" value="Восстановить" />
+                    </form>
+                </td>
+
+            </tr>
+        </table>
+    </div>
+
+    </body>
+</html>
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" href="../../labelstile.css">
+    <meta charset="UTF-8"/>
+    <title>Добавить сотрудника</title>
+</head>
+    <body>
+    <form th:action="@{/addOfficer}" th:method="post" >
+            <table cellpadding="2" width=350 height=70 align="center" bgcolor="#ffffff" border="1">
+            <tr>
+                <td><label for="firstName">Фамилия</label></td>
+                <td><input id="firstName" type="text" name="firstName" placeholder="Фамилия"  value="" /></td>
+            </tr>
+            <tr>
+                <td><label for="lastName">Имя</label></td>
+                <td><input id="lastName" type="text" name="lastName" placeholder="Имя" value="" /></td>
+            </tr>
+            <tr>
+                <td><label for="middleName">Отчество</label></td>
+                <td><input id="middleName" type="text" name="middleName" placeholder="Отчество" value="" /></td>
+            </tr>
+            <tr>
+                <td><label for="officerType">Тип</label></td>
+                <td><input id="officerType" type="text" name="officerType" placeholder="Тип" value="" /></td>
+            </tr>
+
+            <tr>
+                <td><label for="officerCode">Код</label></td>
+                <td><input id="officerCode" type="text" name="officerCode" placeholder="Код" value="" /></td>
+            </tr>
+            <tr>
+                <td><label for="datePrinyat">Принят на работу</label></td>
+                <td><input id="datePrinyat" type="text" name="datePrinyat" placeholder="Принят на работу" value="" /></td>
+            </tr>
+            <input type="hidden" name="dateUvolen" value="1900-01-01" />
+            <input type="hidden" name="status" value="1" />
+            <!--<input type="hidden" name="version" th:value="0" th:field="*{name}"/>-->
+            <tr>
+                <td>
+                    <label for="login">Логин</label>
+                </td>
+                <td><input id="login" type="text" name="login" placeholder="Логин" value="" /></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="password">Пароль</label>
+                </td>
+                <td><input id="password" type="text" name="password" placeholder="Пароль" value="" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="role">Роль</label>
+                </td>
+                <td><input id="role" type="text" name="role" placeholder="Роль" value="" /></td>
+            </tr>
+            <!--<input type="hidden" name="officer" th:value="1" th:field="*{name}"/>-->
+            <tr>
+                <td>
+                    <h4></h4>
+                </td>
+                <td>
+                    <input th:type="submit" th:value="Добавить" /></td>
+            </tr>
+        </table>
+    </form>
+
+    </body>
+</html>

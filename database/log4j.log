@@ -1,0 +1,21 @@
+2018-12-08 18:53:31,609 INFO  - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-12-08 18:53:31,686 INFO  - HHH000412: Hibernate Core {5.3.7.Final}
+2018-12-08 18:53:31,688 INFO  - HHH000205: Loaded properties from resource hibernate.properties: {hibernate.dialect=org.hibernate.dialect.PostgreSQL95Dialect, hibernate.show_sql=true, hibernate.bytecode.use_reflection_optimizer=false, hibernate.format_sql=true}
+2018-12-08 18:53:31,881 INFO  - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-12-08 18:53:32,394 INFO  - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2018-12-08 18:53:32,487 INFO  - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@7c2a69b4
+2018-12-08 18:53:33,689 WARN  - SQL Error: 42102, SQLState: 42S02
+2018-12-08 18:53:33,689 ERROR - Таблица "PG_CLASS" не найдена
+Table "PG_CLASS" not found; SQL statement:
+select relname from pg_class where relkind='S' [42102-197]
+2018-12-08 18:53:34,031 INFO  - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-12-08 18:53:34,040 INFO  - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2018-12-08 18:53:34,045 INFO  - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@7c2a69b4
+2018-12-08 18:53:34,372 WARN  - SQL Error: 42102, SQLState: 42S02
+2018-12-08 18:53:34,373 ERROR - Таблица "PG_CLASS" не найдена
+Table "PG_CLASS" not found; SQL statement:
+select relname from pg_class where relkind='S' [42102-197]

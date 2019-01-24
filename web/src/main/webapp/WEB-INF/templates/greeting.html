@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <h2>Hello World</h2>
+        <br>
+        <div th:if="${redlogin.username != null}">
+            <span th:text="${redlogin.username}"></span>
+        </div>
+        <br>
+        <div>
+            <span th:text="${redlogin.password}"></span>
+        </div>
+        <br>
+        <span>Из сессии</span>
+        <div>
+            <span th:text="${currentUser.username}"></span>
+        </div>
+        <br>
+        <div>
+            <span th:text="${message}"></span>
+        </div>
+        <div th:if="${redlogin.username != null}">
+            <span th:text="${currentUser.username}"></span>
+        </div>
+    </body>
+</html>
+
