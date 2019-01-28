@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+    <head>
+        <meta charset="UTF-8">
+        <title>Find Client</title>
+    </head>
+    <body>
+        <form action="/findClientByFilter" method="get">
+            <div>
+                <label>Форма собственности</label>
+            </div>
+            <div>
+                <!--<select th:name="relationtype1" th:size="1">-->
+                    <!--<span th:each="names: ${findAllBy}">-->
+                        <!--<option th:value="${}">${}</option>-->
+                    <!--</span>-->
+                <!--</select>-->
+
+                    <select name="relationtype1" id="relationtype1" size="1">
+                        <option th:each="relationtype1: ${analyticCodeType1}" th:value="${relationtype1.code}" th:text="${relationtype1.name}">analyticCodeType1</option>
+                    </select>
+            </div>
+            <div>
+                <label>Организационно-правовая форма</label>
+            </div>
+            <div>
+                <select name="relationtype2" id="relationtype2" size="1">
+                    <option th:each="relationtype2: ${analyticCodeType2}" th:value="${relationtype2.code}" th:text="${relationtype2.name}">analyticCodeType2</option>
+                </select>
+            </div>
+            <div>
+                <label>Статус клиента</label>
+            </div>
+            <div>
+                <select name="relationtype3" id="relationtype3" size="1">
+                    <option th:each="relationtype3: ${analyticCodeType3}" th:value="${relationtype3.code}" th:text="${relationtype3.name}">analyticCodeType3</option>
+                </select>
+            </div>
+            <div>
+                <label>Вид деятельности</label>
+            </div>
+            <div>
+                <select name="relationtype4" id="relationtype4" size="1">
+                    <option th:each="relationtype4: ${analyticCodeType4}" th:value="${relationtype4.code}" th:text="${relationtype4.name}">analyticCodeType4</option>
+                </select>
+            </div>
+
+            <input class="button_menu" type="submit" name="officer" value="Найти клиентов"/>
+        </form>
+
+    </body>
+</html>

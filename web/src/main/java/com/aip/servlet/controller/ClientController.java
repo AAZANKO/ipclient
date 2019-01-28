@@ -214,4 +214,14 @@ public class ClientController {
         return "client";
     }
 
+
+    @GetMapping("/findClientByFilter")
+    public String findClientByFilter(Model model, @RequestParam("relationtype1") String relationtype1, @RequestParam("relationtype2") String relationtype2, @RequestParam("relationtype3") String relationtype3, @RequestParam("relationtype4") String relationtype4){
+        System.out.println(" --- -- relationtype1 = "+ relationtype1);
+        System.out.println(" --- -- relationtype2 = "+ relationtype2);
+        System.out.println(" --- -- relationtype3 = "+ relationtype3);
+        System.out.println(" --- -- relationtype4 = "+ relationtype4);
+        return "home";
+    }
+
 }

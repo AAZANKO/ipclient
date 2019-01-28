@@ -8,8 +8,6 @@
     <!--<link rel="stylesheet" type="text/css" href="src/main/resources/static/js/" >-->
     <link rel="stylesheet" type="text/css" th:href="@{/css/librarystilest.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/librarystile.css}" />
-    <!--<link rel="stylesheet" type="text/css" href="../css/librarystilest.css" >-->
-    <!--<link rel="stylesheet" type="text/css" href="../css/librarystile.css" >-->
 
     <style>
         .input{
@@ -96,6 +94,8 @@
             }
         }
     </style>
+    <link rel="stylesheet" type="text/css" href="librarystile.css">
+    <link rel="stylesheet" type="text/css" href="librarystilest.css">
 </head>
 <body>
     <div th:insert="~{headers::language}">
@@ -118,8 +118,8 @@
                         </form>
                     <li>
                         <!--  class="contact_form"  -->
-                        <form action="/findbyclientnamepage" method="get">
-                            <input type="hidden" name="command" value="allusersearch"/>
+                        <form action="/findAnalyticCodeByRelationtype1" method="get">
+                            <!--<input type="hidden" name="command" value="allusersearch"/>-->
                             <input class="button_menu" type="submit" name="sing in" value="Найти клиента"/>
                         </form>
                     <li>

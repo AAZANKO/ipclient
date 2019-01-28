@@ -3,13 +3,21 @@
     <head>
         <meta charset="UTF-8">
         <title>Title</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/librarystilest.css}" />
+        <link rel="stylesheet" type="text/css" th:href="@{/css/librarystile.css}" />
+        <link rel="stylesheet" href="../css/librarystile.css">
+        <link rel="stylesheet" href="../css/librarystilest.css">
     </head>
     <body>
         <div>
             <span>страничка clientall</span>
         </div>
-        <span th:text="${clientAll.name}">Client number</span>
         <br>
         <span>список клиентов</span>
+        <form action="/findbyallclient" method="get">
+            <input type="hidden" name="idPage" th:attr="value=${allIntButton}"/>
+            <input class="button_table" type="submit" name="sing in" th:attr="value=${allIntButton}"/>
+        </form>
+
     </body>
 </html>
