@@ -171,8 +171,14 @@ public class ClientService {
         return list;
     }
 
+    public List<ClientAllDto> findAllByClientOpenDtoAnalyticFilter(Long relationtype1, Long relationtype2, Long relationtype3, Long relationtype4){
+        List<javax.persistence.Tuple> allClientAllDto = clientRepository.findAllByClientOpenDtoAnalyticFilter(relationtype1, relationtype2, relationtype3, relationtype4);
+        List<ClientAllDto> list = allClientAllDto.stream().map(converterClientAllDto::convert).collect(Collectors.toList());
+        return list;
+    }
+
 //
-//    @Transactional // откроется новыя на редактирование
+//    @Transactional // откроется новая на редактирование
 //    public Client save(Client client) {
 ////        Client clientNew = new Client("200006", "ООО ИНКОФУД", "ИНКОФУД", 1L, 1L, Instant.now(), Instant.now(), 200187973, "BY23BSBB301212312345010040", "Витебск", "кросноармейская", "20", "Витебск", "кросноармейская", "20", 2, 3, 2000, Status.OPEN, 1L);
 ////        return clientRepository.save(clientNew);

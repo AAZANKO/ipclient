@@ -35,7 +35,6 @@ public class OrmDemoClientAll {
 
         //======================================================================
 
-
         List<Client> allClient = clientRepository.findAllBy(PageRequest.of(page, size));
 
         for (Client client1:allClient) {
@@ -47,6 +46,8 @@ public class OrmDemoClientAll {
         ConverterClientAllDtoImpl converterClientAllDtoImplconv = context.getBean(ConverterClientAllDtoImpl.class);
 
         List<javax.persistence.Tuple> allClientAllDto = clientRepository.findAllByClientOpenDtoAnalytic(PageRequest.of(page, size));
+
+//        List<javax.persistence.Tuple> allClientAllDto = clientRepository.findAllByClientOpenDtoAnalyticFilter(PageRequest.of(page, size),3L,3L,1L,16L);
 
         Integer colRowes = clientRepository.findByCountRows();
 
